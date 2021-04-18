@@ -145,3 +145,83 @@ class _HeaderBeakPainter extends CustomPainter {
     return true;
   }
 }
+
+class HeaderCurved extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      // color: Color(0xffF5973D),
+      child: CustomPaint(
+        painter: _HeaderCurvedPainter(),
+      ),
+    );
+  }
+}
+
+class _HeaderCurvedPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint();
+
+    //Propiedades
+    paint.color = Color(0xffF5973D);
+    paint.style = PaintingStyle.fill;
+    paint.strokeWidth = 3;
+    final path = Path();
+    path.lineTo(0, size.height * 0.25);
+    // path.lineTo(size.width, size.height * 0.25);
+    path.quadraticBezierTo(
+        size.width * 0.5, size.height * 0.35, size.width, size.height * 0.25);
+    path.lineTo(size.width, 0);
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
+  }
+}
+
+class HeaderWave extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      // color: Color(0xffF5973D),
+      child: CustomPaint(
+        painter: _HeaderWavePainter(),
+      ),
+    );
+  }
+}
+
+class _HeaderWavePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint();
+
+    //Propiedades
+    paint.color = Color(0xffF5973D);
+    paint.style = PaintingStyle.fill;
+    paint.strokeWidth = 3;
+    final path = Path();
+    path.lineTo(0, size.height * 0.25);
+    // path.lineTo(size.width, size.height * 0.25);
+    path.quadraticBezierTo(size.width * 0.25, size.height * 0.35,
+        size.width * 0.5, size.height * 0.25);
+    path.quadraticBezierTo(
+        size.width * 0.75, size.height * 0.15, size.width, size.height * 0.25);
+    path.lineTo(size.width, 0);
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
+  }
+}
